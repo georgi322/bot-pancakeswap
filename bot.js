@@ -8,32 +8,32 @@ const app = express();
 dotenv.config();
 
 const data = {
-  WBNB: process.env.WBNB_CONTRACT, //wbnb
+  WBNB: process.env.WBNB_CONTRACT, //0x1dBB9D23dd501f9B39Dee05600bEB0dcaE4F0761
 
-  to_PURCHASE: process.env.TO_PURCHASE, // token that you will purchase = BUSD for test '0xe9e7cea3dedca5984780bafc599bd69add087d56'
+  to_PURCHASE: process.env.TO_PURCHASE, //0xe9e7cea3dedca5984780bafc599bd69add087d56'
 
-  AMOUNT_OF_WBNB : process.env.AMOUNT_OF_WBNB, // how much you want to buy in WBNB
+  AMOUNT_OF_WBNB : process.env.AMOUNT_OF_WBNB, // 0.007
 
-  factory: process.env.FACTORY,  //PancakeSwap V2 factory
+  factory: process.env.FACTORY, //0xcA143Ce32Fe78f1f7019d7d551a6402fC5350c73
 
-  router: process.env.ROUTER, //PancakeSwap V2 router
+  router: process.env.ROUTER, //0x10ED43C718714eb63d5aA57B78B54704E256024E
 
-  recipient: process.env.YOUR_ADDRESS, //your wallet address,
+  recipient: process.env.YOUR_ADDRESS, //0x9814fe27985997BC44e77788BE547f7Ce46f2785
 
-  Slippage : process.env.SLIPPAGE, //in Percentage
+  Slippage : process.env.SLIPPAGE, //17
 
-  gasPrice : ethers.utils.parseUnits(`${process.env.GWEI}`, 'gwei'), //in gwei
+  gasPrice : ethers.utils.parseUnits(`${process.env.GWEI}`, 'gwei'), //5
 
-  gasLimit : process.env.GAS_LIMIT, //at least 21000
+  gasLimit : process.env.GAS_LIMIT,//2100
 
-  minBnb : process.env.MIN_LIQUIDITY_ADDED //min liquidity added
+  minBnb : process.env.MIN_LIQUIDITY_ADDED //2
 }
 
 let initialLiquidityDetected = false;
 let jmlBnb = 0;
 
 const wss = process.env.WSS_NODE;
-const mnemonic = process.env.YOUR_MNEMONIC //your memonic;
+const mnemonic = process.env.YOUR_MNEMONIC //
 const tokenIn = data.WBNB;
 const tokenOut = data.to_PURCHASE;
 // const provider = new ethers.providers.JsonRpcProvider(bscMainnetUrl)
